@@ -22,21 +22,8 @@ namespace DiscordRoleBot
                 {
                     
                     case "Community":
-
-                        if((user.Status == UserStatus.Online) || (user.Status == UserStatus.Idle) || (user.Status == UserStatus.DoNotDisturb))
-                        {
-                            var role = Context.Guild.Roles.FirstOrDefault(x => x.Name == "Community");
-                            await (user as IGuildUser).AddRoleAsync(role);
-                            await ReplyAsync($"{user.Mention}, your role was successfully updated! Enjoy your time!");
-                        }
-                        else
-                        {
-                            await ReplyAsync($"{Context.User.Mention}, please turn your status to Online so I could update your role. :wink:");
-                        }
-                        break;
-
                     case "community":
-                        if (user.Status == UserStatus.Online || (user.Status == UserStatus.Idle) || (user.Status == UserStatus.DoNotDisturb))
+                        if (user.Status == UserStatus.Online || (user.Status == UserStatus.Idle) || (user.Status == UserStatus.AFK) || (user.Status == UserStatus.DoNotDisturb))
                         {
                             var role = Context.Guild.Roles.FirstOrDefault(x => x.Name == "Community");
                             await (user as IGuildUser).AddRoleAsync(role);
@@ -49,7 +36,7 @@ namespace DiscordRoleBot
                         break;
 
                     default:
-                        if (user.Status == UserStatus.Online || (user.Status == UserStatus.Idle) || (user.Status == UserStatus.DoNotDisturb))
+                        if (user.Status == UserStatus.Online || (user.Status == UserStatus.Idle) || (user.Status == UserStatus.AFK) || (user.Status == UserStatus.DoNotDisturb))
                         {
                             await ReplyAsync($"{Context.User.Mention}, you might want to check the spelling.");
                         }
