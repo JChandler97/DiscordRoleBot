@@ -86,6 +86,7 @@ namespace DiscordRoleBot
             await InitCommands();
 
             // Login and connect.
+            // If you end up taking this code, then make sure you create a resource file called "BotInfo.resx" and the variable name in it as BotToken, then the token itself in the value.
             await _client.LoginAsync(TokenType.Bot, BotInfo.BotToken);
             await _client.StartAsync();
 
